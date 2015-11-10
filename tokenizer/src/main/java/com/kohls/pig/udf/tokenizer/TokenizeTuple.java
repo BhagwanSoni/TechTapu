@@ -119,6 +119,70 @@ public class TokenizeTuple extends EvalFunc<Tuple> {
 							tuple.set(i * 2 + 1, "N");
 						}
 
+					} else if ("TKN_NAME".equals(listOfTokens.get(i).toString()
+							.trim().toUpperCase())) {
+						if (tuple_columns.get(i).toString().trim()
+								.toUpperCase().length() > 0) {
+							tuple_for_tokenizer.set(0, tuple_columns.get(i)
+									.toString().trim().toUpperCase());
+							tuple_for_tokenizer.set(1, listOfTokens.get(i)
+									.toString().trim().toUpperCase());
+							tuple.set(i * 2,
+									protectStr.exec(tuple_for_tokenizer));
+							tuple.set(i * 2 + 1, "Y");
+						} else {
+							tuple.set(i * 2, null);
+							tuple.set(i * 2 + 1, "N");
+						}
+
+					} else if ("TKN_POSTAL".equals(listOfTokens.get(i).toString()
+							.trim().toUpperCase())) {
+						if (tuple_columns.get(i).toString().trim()
+								.toUpperCase().length() > 2) {
+							tuple_for_tokenizer.set(0, tuple_columns.get(i)
+									.toString().trim().toUpperCase());
+							tuple_for_tokenizer.set(1, listOfTokens.get(i)
+									.toString().trim().toUpperCase());
+							tuple.set(i * 2,
+									protectStr.exec(tuple_for_tokenizer));
+							tuple.set(i * 2 + 1, "Y");
+						} else {
+							tuple.set(i * 2, tuple_columns.get(i));
+							tuple.set(i * 2 + 1, "N");
+						}
+
+					} else if ("TKN_GOVTID".equals(listOfTokens.get(i).toString()
+							.trim().toUpperCase())) {
+						if (tuple_columns.get(i).toString().trim()
+								.toUpperCase().length() > 2) {
+							tuple_for_tokenizer.set(0, tuple_columns.get(i)
+									.toString().trim().toUpperCase());
+							tuple_for_tokenizer.set(1, listOfTokens.get(i)
+									.toString().trim().toUpperCase());
+							tuple.set(i * 2,
+									protectStr.exec(tuple_for_tokenizer));
+							tuple.set(i * 2 + 1, "Y");
+						} else {
+							tuple.set(i * 2, tuple_columns.get(i));
+							tuple.set(i * 2 + 1, "N");
+						}
+
+					}else if ("TKN_MICR".equals(listOfTokens.get(i).toString()
+							.trim().toUpperCase())) {
+						if (tuple_columns.get(i).toString().trim()
+								.toUpperCase().length() > 0) {
+							tuple_for_tokenizer.set(0, tuple_columns.get(i)
+									.toString().trim().toUpperCase());
+							tuple_for_tokenizer.set(1, listOfTokens.get(i)
+									.toString().trim().toUpperCase());
+							tuple.set(i * 2,
+									protectStr.exec(tuple_for_tokenizer));
+							tuple.set(i * 2 + 1, "Y");
+						} else {
+							tuple.set(i * 2, null);
+							tuple.set(i * 2 + 1, "N");
+						}
+
 					} else {
 						tuple_for_tokenizer.set(0, tuple_columns.get(i)
 								.toString().trim().toUpperCase());

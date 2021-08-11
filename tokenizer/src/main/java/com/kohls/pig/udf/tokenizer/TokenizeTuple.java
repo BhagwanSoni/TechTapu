@@ -1,5 +1,3 @@
-package com.kohls.pig.udf.tokenizer;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
